@@ -21,17 +21,35 @@ function Wizard() {
   this.klass = "Wizard";
 };
 
-function Monster() {
+function Monster(name) {
   this.level = 2;
   this.health = 10;
   this.attack = 3;
   this.defense = 1;
+  this.name = name;
+}
+
+var gaint = new Monster("gaint");
+var hellgon = new Monster("hellgon");
+var warewolf = new Monster("warewolf");
+var tigger = new Monster("tigger");
+var vampire = new Monster("vampire");
+var hillary = new Monster("hillary");
+
+var monsters = [gaint, hellgon, warewolf, tigger, vampire, hillary];
+
+function getMonster () {
+  var number = Math.floor(Math.random()*6);
+   return monsters[number];
 }
 
 function attack (attacker, defender) {
   var damageDelt = Math.floor(Math.random()*6);
   defender.health -= damageDelt;
-  alert("You attack, the monster's health is " + damageDelt)
+  alert("You attack, the monster's health is " + damageDelt);
+  if (damageDelt == 0 || damageDelt < 0) {
+    alert("The monster is dead!")
+  }
 };
 
 
